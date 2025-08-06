@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jose Mkopa Shops</title>
+<style>
+  body, html {
+    margin: 0; padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .overlay {
+    background-color: rgba(46, 125, 50, 0.3); /* Safaricom green 30% */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .cart-link {
+    display: flex;
+    align-items: center;
+  }
+  .cart-link img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+  }
+  .search-bar {
+    margin: 20px auto;
+    text-align: center;
+  }
+  .search-bar input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  .search-bar button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: none;
+    background-color: #2e7d32;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .search-bar button:hover {
+    background-color: #276627;
+  }
+  main {
+    flex-grow: 1;
+    padding: 0 20px 40px;
+    color: white;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    border-bottom: 2px solid #2e7d32;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  .products-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .product-card {
+    background: white;
+    color: black;
+    width: 180px;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-card img {
+    width: 140px;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .product-card h3 {
+    margin: 5px 0 15px;
+    font-size: 18px;
+  }
+  .btn {
+    width: 90%;
+    padding: 8px 0;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+  }
+  .btn-add {
+    background-color: #43a047;
+  }
+  .btn-add:hover {
+    background-color: #368236;
+  }
+  .btn-book {
+    background-color: #1e88e5;
+  }
+  .btn-book:hover {
+    background-color: #1669bb;
+  }
+  .testimonial-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .testimonial {
+    background: white;
+    color: black;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-style: italic;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  }
+  footer {
+    background-color: #004d40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  footer .social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  footer .social-links a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    nav {
+      width: 100%;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      margin: 5px 10px;
+    }
+    .products-container {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <div class="logo">Jose Mkopa Shops</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#" class="cart-link">Carts <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Trolley Icon" /></a>
+        <a href="#">Store</a>
+        <a href="signin.html">Sign In</a>
+      </nav>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <button onclick="searchProduct()">Search</button>
+    </div>
+
+    <main>
+      <section>
+        <h2>Smartphones</h2>
+        <div class="products-container" id="phones">
+          <!-- Samsung phones -->
+          <div class="product-card">
+            <img src="https://images.samsung.com/is/image/samsung/p6pim/ke/sm-a052fzkeksa/gallery/ke-galaxy-a05s-a052-sm-a052fzkeksa-531155735?$650_519_PNG$" alt="Samsung A05"/>
+            <h3>Samsung A05</h3>
+            <button class="btn btn-add" onclick="addToCart('Samsung A05')">Add to Cart</button>
+            <button class="btn btn-book" onclick="bookNow('Samsung A05')">Book Now</button>
+          </div>
+          <div class="product-card">
+            <img src="https://images.samsung.com/is/image/samsung/p6pim/af/sm-a066bzkgxaf/gallery/af-galaxy-a06-sm-a066-451070596?$650_519_PNG$" alt="Samsung A06"/>
+            <h3>Samsung A06</h3>
+            <button class="btn btn-add" onclick="addToCart('Samsung A06')">Add to Cart</button>
+            <button class="btn btn-book" onclick="bookNow('Samsung A06')">Book Now</button>
+          </div>
+          <div class="product-card">
+            <img src="https://images.samsung.com/is/image/samsung/p6pim/af/sm-a157fzkgxaf/gallery/af-galaxy-a15-sm-a157-451125597?$650_519_PNG$" alt="Samsung A15"/>
+            <h3>Samsung A15</h3>
+            <button class="btn btn-add" onclick="addToCart('Samsung A15')">Add to Cart</button>
+            <button class="btn btn-book" onclick="bookNow('Samsung A15')">Book Now</button>
+          </div>
+          <div class="product-card">
+            <img src="https://images.samsung.com/is/image/samsung/p6pim/ke/sm-a255fzkgkea/gallery/ke-galaxy-a25-sm-a255-sm-a255fzkgkea-534608787?$650_519_PNG$" alt="Samsung A25"/>
+            <h3>Samsung A25</h3>
+            <button class="btn btn-add" onclick="addToCart('Samsung A25')">Add to Cart</button>
+            <button class="btn btn-book" onclick="bookNow('Samsung A25')">Book Now</button>
+          </div>
+          <!-- iPhone -->
+          <div class="product-card">
+            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-max-family-hero" alt="iPhone 13"/>
